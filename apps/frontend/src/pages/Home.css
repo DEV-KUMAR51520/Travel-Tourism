@@ -1,0 +1,525 @@
+/* ---------- GLOBAL ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+.site-root {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #0f172a;
+  background: linear-gradient(180deg, #fff 0%, #fffbf7 100%);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ---------- HEADER ---------- */
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 36px;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  color: #111;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav a {
+  color: #334155;
+  cursor: pointer;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #ff7a59;
+}
+
+.btn-primary {
+  background: #ff7a59;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #ff6139;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #ff7a59;
+  border: 1px solid #ffd0c2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: #fff4f1;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.eyebrow {
+  color: #ff6b6b;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  line-height: 1.1;
+  margin: 12px 0 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.lead {
+  color: #475569;
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.hero-right {
+  width: 440px;
+  flex-shrink: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(237, 100, 86, 0.12);
+}
+
+/* ---------- SERVICES ---------- */
+.services {
+  padding: 80px 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-title {
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.service {
+  background: transparent;
+  text-align: center;
+  padding: 12px;
+}
+
+.service img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+}
+
+.service h4 {
+  margin: 8px 0 6px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.service p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ---------- DESTINATIONS ---------- */
+.top-destinations {
+  padding: 80px 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  color: #0f172a;
+  margin: 12px 0;
+}
+
+.section-header p {
+  color: #64748b;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  padding: 20px 0;
+}
+
+.destination-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.location h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ---------- EASY STEPS ---------- */
+.easy-steps {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 36px;
+  align-items: flex-start;
+}
+
+.steps-content {
+  flex: 1;
+}
+
+.steps-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  color: #14183e;
+  margin-bottom: 40px;
+  max-width: 510px;
+  line-height: 1.2;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step1 {
+  background: #f0bb1f;
+}
+.step2 {
+  background: #f15a2b;
+}
+.step3 {
+  background: #006380;
+}
+
+.step-text h4 {
+  color: #14183e;
+  font-size: 16px;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.step-text p {
+  color: #5e6282;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 340px;
+}
+
+.steps-showcase {
+  width: 370px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.trip-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.trip-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.trip-content {
+  padding: 20px;
+}
+
+.trip-content h4 {
+  margin: 0 0 12px;
+  color: #14183e;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.trip-content p {
+  color: #5e6282;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.trip-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.people {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5e6282;
+  font-size: 14px;
+}
+
+.like-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.like-button:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials {
+  padding: 60px 36px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials h3 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  color: #14183e;
+}
+
+.test-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.test-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  max-width: 560px;
+}
+
+.test-card p {
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+/* ---------- SUBSCRIBE ---------- */
+.subscribe {
+  margin: 60px 0;
+}
+
+.subscribe-box {
+  background: linear-gradient(90deg, #fef3e8, #fff);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.subscribe-box h4 {
+  font-size: 20px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.subscribe-form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  width: 300px;
+  font-size: 14px;
+}
+
+.subscribe-form button {
+  background: #ff7a59;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.subscribe-form button:hover {
+  background: #ff5c36;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  padding: 36px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-image {
+    height: 260px;
+  }
+
+  .easy-steps {
+    flex-direction: column;
+  }
+
+  .steps-showcase {
+    width: 100%;
+  }
+}

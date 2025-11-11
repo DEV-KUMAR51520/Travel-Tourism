@@ -1,0 +1,50 @@
+# .github/workflows/ci.yml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: swadeshi_dev
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend deps
+        working-directory: apps/backend
+        run: npm ci
+
+      - name: Generate Prisma client & migrate
+        working-directory: apps/backend
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/swadeshi_dev
+        run: |
+          npx prisma generate
+          npx prisma migrate deploy
+
+      - name: Build backend
+        working-directory: apps/backend
+        run: npm run build
+
+      - name: Install frontend deps
+        working-directory: apps/frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: apps/frontend
+        run: npm run build

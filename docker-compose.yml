@@ -1,0 +1,47 @@
+# version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: swadeshi_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+      - ml-service
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/swadeshi_dev
+      JWT_SECRET: 1dcd107a6966a3c769791f07f1c7608a8230cc1b848da9548be487838e9cfeeef5b72075ee77e5291ab634ea3267c51bffdecc575c5ea1a5c2217bfc42c7c1e0
+      PORT: 4000
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  ml-service:
+    build:
+      context: ./apps/ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+volumes:
+  db_data:
